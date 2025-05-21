@@ -116,6 +116,22 @@ class MemoryCompanionService:
         self._save_project_data()
         return {"currentSprint": sprint_name}
     
+    def update_opportunities(self, opportunities: List[Dict[str, Any]]) -> Dict[str, Any]:
+        """Update opportunities with data from the Issue Tracker"""
+        # Replace existing opportunities with ones from Issue Tracker
+        self.project_data["opportunities"] = opportunities
+        self._save_project_data()
+        return {"updated": len(opportunities)}
+    
+    def update_project_stats(self, issue_stats: Dict[str, Any]) -> Dict[str, Any]:
+        """Update project statistics with data from Issue Tracker"""
+        if "issue_stats" not in self.project_data:
+            self.project_data["issue_stats"] = {}
+        
+        self.project_data["issue_stats"] = issue_stats
+        self._save_project_data()
+        return {"success": True}
+    
     def get_project_data(self) -> Dict[str, Any]:
         """Get all project data"""
         return self.project_data
@@ -204,14 +220,9 @@ Answer questions about the project status, help the user decide what to work on 
             messages.append({"role": "user", "content": user_message})
             
             if llm_provider == "openai":
-                client = openai.AsyncOpenAI(api_key=self.openai_api_key)
-                response = await client.chat.completions.create(
-                    model=model_name,
-                    messages=messages,
-                    temperature=0.7,
-                    max_tokens=800
-                )
-                daria_response = response.choices[0].message.content
+                # Use the older OpenAI API pattern for 0.28.1
+                response = await self._call_openai_async(model_name, messages)
+                daria_response = response["choices"][0]["message"]["content"]
                 
             elif llm_provider == "anthropic":
                 from anthropic import AsyncAnthropic
@@ -247,6 +258,31 @@ Answer questions about the project status, help the user decide what to work on 
         except Exception as e:
             logger.error(f"Error getting LLM response: {str(e)}")
             return f"I'm having trouble connecting to my memory systems. Please try again later. (Error: {str(e)})"
+            
+    async def _call_openai_async(self, model: str, messages: List[Dict[str, str]]) -> Dict[str, Any]:
+        """Make an async call to the OpenAI API using the older 0.28.1 version pattern"""
+        import aiohttp
+        
+        api_key = self.openai_api_key
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {api_key}"
+        }
+        
+        data = {
+            "model": model,
+            "messages": messages,
+            "temperature": 0.7,
+            "max_tokens": 800
+        }
+        
+        async with aiohttp.ClientSession() as session:
+            async with session.post(
+                "https://api.openai.com/v1/chat/completions",
+                headers=headers,
+                json=data
+            ) as response:
+                return await response.json()
 
 
 # Create Flask Blueprint
@@ -320,6 +356,30 @@ def update_sprint():
         return jsonify({'error': 'Sprint name is required'}), 400
     
     result = memory_companion_service.update_sprint(sprint_name)
+    return jsonify(result)
+
+
+@memory_companion_bp.route('/api/memory_companion/update_opportunities', methods=['POST'])
+def update_opportunities():
+    """API endpoint to update opportunities from Issue Tracker"""
+    data = request.json
+    if not data or "opportunities" not in data:
+        return jsonify({"error": "Missing opportunities data"}), 400
+    
+    service = current_app.config.get('memory_companion_service')
+    result = service.update_opportunities(data["opportunities"])
+    return jsonify(result)
+
+
+@memory_companion_bp.route('/api/memory_companion/update_project_stats', methods=['POST'])
+def update_project_stats():
+    """API endpoint to update project statistics from Issue Tracker"""
+    data = request.json
+    if not data or "issue_stats" not in data:
+        return jsonify({"error": "Missing issue statistics data"}), 400
+    
+    service = current_app.config.get('memory_companion_service')
+    result = service.update_project_stats(data["issue_stats"])
     return jsonify(result)
 
 

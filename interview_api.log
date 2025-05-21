@@ -1,0 +1,65 @@
+Traceback (most recent call last):
+  File "/Users/sdulaney/DariaInterviewTool/run_interview_api.py", line 21, in <module>
+    from langchain_features.services.interview_service import InterviewService
+  File "/Users/sdulaney/DariaInterviewTool/langchain_features/__init__.py", line 12, in <module>
+    from langchain_features import routes
+  File "/Users/sdulaney/DariaInterviewTool/langchain_features/routes.py", line 3, in <module>
+    from langchain_features.services.interview_service import InterviewService
+  File "/Users/sdulaney/DariaInterviewTool/langchain_features/services/interview_service.py", line 14, in <module>
+    from .interview_agent import InterviewAgent
+  File "/Users/sdulaney/DariaInterviewTool/langchain_features/services/interview_agent.py", line 14, in <module>
+    from langchain.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
+  File "/Users/sdulaney/DariaInterviewTool/venv/lib/python3.13/site-packages/langchain/__init__.py", line 6, in <module>
+    from langchain.agents import MRKLChain, ReActChain, SelfAskWithSearchChain
+  File "/Users/sdulaney/DariaInterviewTool/venv/lib/python3.13/site-packages/langchain/agents/__init__.py", line 31, in <module>
+    from langchain.agents.agent import (
+    ...<6 lines>...
+    )
+  File "/Users/sdulaney/DariaInterviewTool/venv/lib/python3.13/site-packages/langchain/agents/agent.py", line 14, in <module>
+    from langchain.agents.agent_iterator import AgentExecutorIterator
+  File "/Users/sdulaney/DariaInterviewTool/venv/lib/python3.13/site-packages/langchain/agents/agent_iterator.py", line 21, in <module>
+    from langchain.callbacks.manager import (
+    ...<5 lines>...
+    )
+  File "/Users/sdulaney/DariaInterviewTool/venv/lib/python3.13/site-packages/langchain/callbacks/__init__.py", line 22, in <module>
+    from langchain.callbacks.manager import (
+    ...<4 lines>...
+    )
+  File "/Users/sdulaney/DariaInterviewTool/venv/lib/python3.13/site-packages/langchain/callbacks/manager.py", line 41, in <module>
+    from langchain.callbacks.tracers.langchain import LangChainTracer
+  File "/Users/sdulaney/DariaInterviewTool/venv/lib/python3.13/site-packages/langchain/callbacks/tracers/__init__.py", line 3, in <module>
+    from langchain.callbacks.tracers.langchain import LangChainTracer
+  File "/Users/sdulaney/DariaInterviewTool/venv/lib/python3.13/site-packages/langchain/callbacks/tracers/langchain.py", line 11, in <module>
+    from langsmith import Client
+  File "/Users/sdulaney/DariaInterviewTool/venv/lib/python3.13/site-packages/langsmith/__init__.py", line 10, in <module>
+    from langsmith.client import Client
+  File "/Users/sdulaney/DariaInterviewTool/venv/lib/python3.13/site-packages/langsmith/client.py", line 47, in <module>
+    from langsmith import env as ls_env
+  File "/Users/sdulaney/DariaInterviewTool/venv/lib/python3.13/site-packages/langsmith/env/__init__.py", line 3, in <module>
+    from langsmith.env._runtime_env import (
+    ...<11 lines>...
+    )
+  File "/Users/sdulaney/DariaInterviewTool/venv/lib/python3.13/site-packages/langsmith/env/_runtime_env.py", line 9, in <module>
+    from langsmith.utils import get_docker_compose_command
+  File "/Users/sdulaney/DariaInterviewTool/venv/lib/python3.13/site-packages/langsmith/utils.py", line 12, in <module>
+    from langsmith import schemas as ls_schemas
+  File "/Users/sdulaney/DariaInterviewTool/venv/lib/python3.13/site-packages/langsmith/schemas.py", line 62, in <module>
+    class Example(ExampleBase):
+    ...<29 lines>...
+            return None
+  File "/Users/sdulaney/DariaInterviewTool/venv/lib/python3.13/site-packages/pydantic/main.py", line 286, in __new__
+    cls.__try_update_forward_refs__()
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/sdulaney/DariaInterviewTool/venv/lib/python3.13/site-packages/pydantic/main.py", line 808, in __try_update_forward_refs__
+    update_model_forward_refs(cls, cls.__fields__.values(), cls.__config__.json_encoders, localns, (NameError,))
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sdulaney/DariaInterviewTool/venv/lib/python3.13/site-packages/pydantic/typing.py", line 562, in update_model_forward_refs
+    update_field_forward_refs(f, globalns=globalns, localns=localns)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sdulaney/DariaInterviewTool/venv/lib/python3.13/site-packages/pydantic/typing.py", line 528, in update_field_forward_refs
+    field.type_ = evaluate_forwardref(field.type_, globalns, localns or None)
+                  ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sdulaney/DariaInterviewTool/venv/lib/python3.13/site-packages/pydantic/typing.py", line 66, in evaluate_forwardref
+    return cast(Any, type_)._evaluate(globalns, localns, set())
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: ForwardRef._evaluate() missing 1 required keyword-only argument: 'recursive_guard'

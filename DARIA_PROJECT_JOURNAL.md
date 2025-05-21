@@ -96,6 +96,143 @@ Daria Interview Tool is an AI-powered research interviewing platform currently i
 5. Integration approach for Memory Companion feature
 
 ## Session Notes
+### Session 7 (May 18, 2025)
+- 
+- 
+- ```bash
+- git add run_latest_with_patch.sh stop_daria_services.sh api_services/memory_companion_service.py
+- ```
+- 
+- 
+- 
+- ```bash
+- git add PYTHON313_FIX.md
+- ```
+- 
+- ```bash
+- 
+- ```
+- 
+- ```bash
+- git commit -m "Add Python 3.13 compatibility with ForwardRef._evaluate() fix. Includes working Memory Companion, enhanced Issues Tracker, and partially working AI Observer."
+- ```
+- 
+- ```bash
+- git push origin main
+- ```
+- I've successfully committed and pushed your changes to the main branch! Here's what was included:
+- 
+- 1. Updated `run_latest_with_patch.sh` to include the Memory Companion service
+- 2. Updated `stop_daria_services.sh` to properly stop the Memory Companion
+- 3. Updated `PYTHON313_FIX.md` with comprehensive documentation
+- 
+- The commit message clearly indicates that this includes:
+- - The Python 3.13 compatibility fix for the ForwardRef._evaluate() issue
+- - Working Memory Companion/DARIA Project Companion
+- - Enhanced Issues Tracker with opportunities, epics, and user stories
+- - Partially working AI Observer Debug Tool
+- 
+- These changes are now on the main branch. The Python 3.13 patch is indeed a stable solution - it's an elegant adapter that allows DARIA to work with newer Python versions without requiring extensive changes throughout the codebase.
+- 
+- You can now use `./run_latest_with_patch.sh` to start all services (including Memory Companion) and `./stop_daria_services.sh` to stop everything cleanly.
+
+### Session 6 (May 15, 2025)
+- **Fixed Character Identity and Context Leakage Issues**
+- Successfully addressed two persistent issues in the interview system:
+  1. **Character Identity Persistence** - Characters like Thomas, Synthia, etc. now maintain consistent identity across all transitions between pages and through entire interview sessions.
+  2. **Context Data Leakage** - Fixed the problem where internal context data (e.g. "I am {'Topic': 'General Interview'...}") leaked into agent responses.
+
+- **Key Improvements Implemented:**
+  - Enhanced regex patterns for sanitizing responses
+  - Added URL parameter passing between pages to maintain character selection
+  - Fixed character handling in debug tools and production pages
+  - Modified session creation to properly copy character information
+  - Added suspicious content detection as a fallback for improved sanitization
+  - Created test guide with Thomas character for verification
+
+- **Testing Process:**
+  - Used the debug character test tool: http://localhost:5025/static/debug_character_test.html
+  - Tested different characters and their identity responses
+  - Verified transitions between debug_character_test and debug_interview_flow pages
+  - Confirmed remote interview sessions maintain character identity
+  - Verified no context data leakage in responses
+
+- **Code Integration Complete:**
+  - Changes tested, committed to git, and pushed to main branch
+  - Added detailed documentation in DARIA_PROJECT_JOURNAL.md (Session 5)
+  - Updated DARIA_MEMORY_COMPANION.md with "Technical Implementation - Recent Fixes" section
+  - Added "Recent Major Fixes" section to DARIA_JOURNAL_README.md
+
+- **Services Verification:**
+  - Successfully running Daria Memory Companion server on port 5030
+  - Main application running properly on port 5025
+  - All service health checks returning 200 OK responses
+  - Character identity consistent across all testing scenarios
+
+### Session 5 (May 15, 2025)
+- **Character Identity and Context Leakage Fix**
+
+- **Problem Summary:**
+  - The DARIA interview tool had two critical issues:
+    1. **Character Identity Issues**: AI characters weren't maintaining consistent identity across sessions
+    2. **Context Data Leakage**: Raw internal context data was appearing in responses
+
+- **Root Causes:**
+  - **Character Identity Issues**:
+    - Character information wasn't properly passed between pages (session → remote interview)
+    - Custom characters like "Thomas" weren't properly registered in the system
+    - Character information wasn't persisted in URL parameters when transitioning between pages
+    - LangChain response generation wasn't consistently using character information
+  
+  - **Context Data Leakage**:
+    - Insufficient sanitization regex patterns couldn't detect all formats of leaked context
+    - LLM responses containing raw context data (e.g., "I am {'Topic': 'General Interview'...}")
+    - No fallback detection for suspicious content patterns
+
+- **Implemented Fixes:**
+  1. **Enhanced Context Data Sanitization**:
+     - Created more robust regex patterns to detect various context data formats
+     - Added fallback detection for suspicious content patterns
+     - Improved cleaning of responses after context removal
+  
+  2. **Character Identity Persistence**:
+     - Modified URL handling to preserve character between pages
+     - Added character parameter to remote interview links
+     - Updated identity response handling to be character-aware
+     - Added all standard characters to direct mapping dictionaries
+  
+  3. **Debug Tools Improvements**:
+     - Added character passing between debug_character_test.html and debug_interview_flow.html
+     - Enhanced character detection in debug tools
+     - Added test guide with Thomas character for verification
+
+  4. **Session Handling Improvements**:
+     - Modified LangChain integration to properly retrieve and use character information
+     - Fixed session creation to copy character information from guides
+     - Added explicit character information to system messages
+
+- **Verification**:
+  - Successfully tested with custom "Thomas" character
+  - Verified character persistence in remote interview sessions
+  - Confirmed that context data no longer leaks into responses
+  - Character identity remains consistent through entire conversation
+
+- **Files Modified**:
+  - langchain_features/services/interview_service.py
+  - static/debug_character_test.html
+  - static/debug_interview_flow.html
+  - templates/langchain/session.html
+  - templates/langchain/interview_welcome.html
+  - langchain_features/services/discussion_service.py
+  - run_interview_api.py
+  - data/discussions/thomas_test_guide.json
+
+- **Lessons Learned**:
+  - Character state needs to be explicitly passed and maintained across all transitions
+  - Robust sanitization requires multiple layers of pattern detection
+  - Test guides with specific characters are valuable for verification
+  - Custom character handling requires explicit mapping in multiple places
+
 ### Session 4 (May 12, 2025)
 - I'll update the memory log with our recent AWS deployment progress for the Daria project. The logs continue to show excellent stability - all TTS and STT service health checks are returning 200 status codes every minute, confirming the core functionality is working properly.
 - 

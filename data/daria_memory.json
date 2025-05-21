@@ -18,6 +18,18 @@
     {
       "date": "May 12, 2025",
       "event": "Began testing AWS deployment with simple components"
+    },
+    {
+      "date": "May 15, 2025",
+      "event": "Fixed Character Identity and Context Leakage issues in interview system"
+    },
+    {
+      "date": "May 18, 2025",
+      "event": "Updated system with Python 3.13 compatibility patch and integrated Memory Companion into startup/shutdown scripts"
+    },
+    {
+      "date": "May 19, 2025",
+      "event": "May 19, 2025: Update EC2 with new release candidate for testing, add elastic IP for testing remote interview"
     }
   ],
   "opportunities": [
@@ -44,108 +56,126 @@
       "title": "Sprint Engine Capabilities",
       "priority": "Low",
       "description": "Add full agile artifact generation for UX research sprints"
+    },
+    {
+      "id": "OPP-005",
+      "title": "Streamlined Service Management",
+      "description": "Use ./run_latest_with_patch.sh to start all services (including Memory Companion) and ./stop_daria_services.sh to stop everything cleanly",
+      "priority": "High"
+    },
+    {
+      "id": "OPP-006",
+      "title": "Add TTS and STT to Daria Memory Companion ",
+      "description": "We have the http://localhost:5030/static/daria_memory_companion.html where we can chat with Daria about the project milestones. Currently it is text only chat. It would be great to add TSS and STT to that tool.",
+      "priority": "Medium"
+    },
+    {
+      "id": "OPP-007",
+      "title": "Second Test Opportunity",
+      "description": "Second Test Opportunity",
+      "priority": "Medium"
     }
   ],
   "conversation_history": [
     {
-      "timestamp": "2025-05-10T18:03:57.617517",
+      "timestamp": "2025-05-17T19:49:13.322869",
       "user_message": "Hello! I've just booted up. Can you remind me what we're working on?",
-      "daria_response": "Hello! Welcome back! We're currently in the **Database Implementation and AWS Deployment (Phase 2)** sprint for the **Daria Interview Tool** project. Here\u2019s a quick recap of our recent activities:\n\n- We started implementing the database schema for core tables on **May 10, 2025**.\n- We began testing the AWS deployment with simple components on **May 12, 2025**.\n\nOur primary goals right now are to establish a persistent database for interview data and refine our AWS deployment strategy. If you're ready to jump back in or have specific tasks in mind, just let me know!"
+      "daria_response": "Hello! Welcome back! We're currently in the **Database Implementation and AWS Deployment (Phase 2)** sprint for the **Daria Interview Tool** project.\n\nHere's a quick recap of our focus areas:\n\n- Implementing the database migration.\n- Troubleshooting the remote interview template.\n- Addressing challenges with the monitoring feature.\n\nIf there's something specific you'd like to work on today or any questions you have, just let me know!"
     },
     {
-      "timestamp": "2025-05-10T18:04:28.338128",
-      "user_message": "If I give you some more background can you update your memory?",
-      "daria_response": "I appreciate your willingness to provide more background! However, I\u2019m unable to update my memory directly. But I can certainly note the information you share in our conversation and use it to assist you better during our session. \n\nFeel free to provide any details or context, and I'll do my best to incorporate that into our ongoing discussions!"
-    },
-    {
-      "timestamp": "2025-05-10T21:37:22.277549",
-      "user_message": "how are things going? I am about to spin up an aws server",
-      "daria_response": "Things are going well, thank you! It's exciting to hear that you're about to spin up an AWS server. This is an important step in our current sprint for the **Daria Interview Tool** project.\n\nAs you prepare to set up the AWS server, here are a few things to consider:\n\n1. **Configuration:** Ensure that your server is configured with the necessary security groups, IAM roles, and permissions to allow for proper access and security.\n\n2. **Database Connection:** If you're planning to connect to the database we\u2019re implementing, make sure the database is accessible from the AWS instance.\n\n3. **Deployment Strategy:** Have a clear deployment strategy in place for how you'll deploy the application on the server, including any CI/CD processes if applicable.\n\n4. **Monitoring:** Set up monitoring tools to keep track of the server's performance and health once it\u2019s running.\n\nIf you need any specific guidance or have questions during the setup process, feel free to ask!"
-    },
-    {
-      "timestamp": "2025-05-11T14:05:25.419113",
+      "timestamp": "2025-05-17T21:59:17.228840",
       "user_message": "Hello! I've just booted up. Can you remind me what we're working on?",
-      "daria_response": "Hello! Welcome back! We're currently focused on the **Database Implementation and AWS Deployment (Phase 2)** sprint for the **Daria Interview Tool** project. Here\u2019s a quick recap of our recent activities:\n\n- We started implementing the database schema for core tables on **May 10, 2025**.\n- We began testing the AWS deployment with simple components on **May 12, 2025**.\n\nAs of now, you're gearing up to spin up an AWS server, which is an important step in advancing our deployment strategy. If there's anything specific you'd like to work on or any questions you have, just let me know!"
+      "daria_response": "Hello! Welcome back! We're currently focused on the **Database Implementation and AWS Deployment (Phase 2)** sprint for the **Daria Interview Tool** project.\n\nHere\u2019s a brief summary of what we\u2019re working on:\n\n- Implementing the database migration.\n- Troubleshooting the remote interview template.\n- Addressing challenges with the monitoring feature.\n\nIf there's anything specific you'd like to tackle today or any questions you have, just let me know!"
     },
     {
-      "timestamp": "2025-05-11T14:34:36.297015",
+      "timestamp": "2025-05-17T21:59:35.763043",
+      "user_message": "Hi daria how are things going today?",
+      "daria_response": "Hi there! I'm doing well, thank you! Things are progressing with the **Daria Interview Tool** project as we continue with the **Database Implementation and AWS Deployment (Phase 2)** sprint. We're currently focusing on implementing the database migration, troubleshooting the remote interview template, and addressing challenges with the monitoring feature.\n\nHow about you? Is there anything specific you'd like to work on today or any questions you have?"
+    },
+    {
+      "timestamp": "2025-05-17T22:00:01.886736",
+      "user_message": "I'm still working on the database feature. We did get AWS delpoyment",
+      "daria_response": "That's great to hear! It's fantastic that you've made progress on the AWS deployment. So now, focusing on the database feature, we can continue with the implementation of the database migration to replace the JSON file storage.\n\nSince we have identified the opportunity for a persistent database for interview data (OPP-001), it might be a good time to review the database schema you\u2019re working on and ensure it aligns with our requirements. \n\nWould you like to discuss any specific aspects of the database implementation, or do you need help troubleshooting any issues?"
+    },
+    {
+      "timestamp": "2025-05-18T19:17:02.884701",
       "user_message": "Hello! I've just booted up. Can you remind me what we're working on?",
-      "daria_response": "Hello! Welcome back! We're currently in the **Database Implementation and AWS Deployment (Phase 2)** sprint for the **Daria Interview Tool** project. Here's a quick overview of what we've been working on:\n\n- On **May 10, 2025**, we began implementing the database schema for the core tables.\n- On **May 12, 2025**, we started testing the AWS deployment with simple components.\n\nYou're also in the process of preparing to spin up an AWS server, which is a key step in our deployment strategy. If you have specific tasks in mind or questions about what to work on next, feel free to let me know!"
+      "daria_response": "Hello! Welcome back! We're currently focused on the **Database Implementation and AWS Deployment (Phase 2)** sprint for the **Daria Interview Tool** project.\n\nHere's a brief overview of what we're working on:\n\n- Finalizing the database feature, especially the migration to a persistent database for interview data.\n- Ensuring the AWS deployment is properly configured and secure.\n- Continuing to troubleshoot any issues related to the remote interview template and monitoring feature.\n\nIf there's anything specific you'd like to dive into today or any questions you have, just let me know!"
     },
     {
-      "timestamp": "2025-05-12T07:50:57.058867",
+      "timestamp": "2025-05-18T19:27:09.936711",
       "user_message": "Hello! I've just booted up. Can you remind me what we're working on?",
-      "daria_response": "Hello! Welcome back! We're currently focused on the **Database Implementation and AWS Deployment (Phase 2)** sprint for the **Daria Interview Tool** project. Here\u2019s a brief recap of our recent activities:\n\n- On **May 10, 2025**, we began implementing the database schema for core tables.\n- On **May 12, 2025**, we started testing the AWS deployment with simple components.\n\nIf you're preparing to spin up an AWS server, that's an exciting step forward! Let me know if you have any specific questions or if there's a particular area you'd like to focus on today!"
+      "daria_response": "Hello! Welcome back! We're currently in the **Database Implementation and AWS Deployment (Phase 2)** sprint for the **Daria Interview Tool** project.\n\nHere's a quick summary of what we're focusing on:\n\n- Finalizing the database feature, particularly migrating to a persistent database for interview data.\n- Ensuring the proper configuration and security of the AWS deployment.\n- Troubleshooting any issues with the remote interview template and monitoring feature.\n\nIf there's something specific you'd like to work on today or any questions you have, just let me know!"
     },
     {
-      "timestamp": "2025-05-12T09:06:09.805294",
+      "timestamp": "2025-05-18T19:27:42.150905",
+      "user_message": "Do you know the new updated start scripts?",
+      "daria_response": "I don\u2019t have specific details about the new updated start scripts in my records. If there have been recent changes or updates that you'd like to share, please let me know! I can help you integrate that information into our ongoing tasks or assist with any questions you have regarding the updated scripts."
+    },
+    {
+      "timestamp": "2025-05-18T19:28:00.727070",
+      "user_message": "What do you know about working with memory companion",
+      "daria_response": "The **Memory Companion Feature** (OPP-003) is one of the identified opportunities for the **Daria Interview Tool** project. The goal is to implement Daria as a project companion with persistent memory, which would allow me to remember past interactions and context for more personalized assistance.\n\nKey aspects of working with the Memory Companion feature could include:\n\n1. **Persistent Memory Storage**: Developing a structured way to store user interactions and project history in the database, allowing the AI to recall details across sessions.\n\n2. **Contextual Awareness**: Ensuring I can reference relevant past interactions, decisions, and project updates to provide meaningful support.\n\n3. **User Control**: Implementing features that allow users to manage what information is retained or forgotten, ensuring privacy and control over their data.\n\n4. **Integration with Other Features**: Ensuring the memory companion works seamlessly with other functionalities like interview data analysis and reporting.\n\nIf you\u2019re considering working on this feature, we could outline the requirements and plan the implementation steps. Let me know how you\u2019d like to proceed!"
+    },
+    {
+      "timestamp": "2025-05-18T19:28:18.545760",
+      "user_message": "yes , what did we do today?",
+      "daria_response": "I don\u2019t have a record of specific activities or updates for today. However, if you were working on the database feature and making progress on AWS deployment, those would be key activities. \n\nIf you want to summarize what you've accomplished today or if there are specific tasks you worked on, please share, and I can help you organize that information or plan the next steps!"
+    },
+    {
+      "timestamp": "2025-05-18T19:29:50.810709",
+      "user_message": "what can I now use to start the services including Memory companion ",
+      "daria_response": "To start the services including the Memory Companion feature for the **Daria Interview Tool**, you would typically follow these steps:\n\n1. **Ensure Database is Running**: Make sure that your database service is up and running, as the Memory Companion will rely on it for persistent storage.\n\n2. **Start the Back-End Server**: Depending on your specific setup (Node.js, Python, etc.), use your start script (e.g., `npm start` or `python app.py`) to launch the back-end server that handles the API requests and integrates with the Memory Companion.\n\n3. **Initialize the Memory Companion**: If there's a specific module or service for the Memory Companion, ensure that it is initialized properly within your application. This may involve loading any necessary configurations or setting up the memory storage mechanisms.\n\n4. **Run Front-End Application**: If you're using a front-end framework, start the front-end application (e.g., using `npm start` for React or Angular) to allow users to interact with the Memory Companion.\n\n5. **Test the Integration**: After starting all the services, conduct tests to ensure that the Memory Companion is functioning as expected, retrieving and storing information properly.\n\nIf there are any specific commands or scripts you've been using that you'd like to confirm or discuss further, feel free to share!"
+    },
+    {
+      "timestamp": "2025-05-18T19:33:25.863337",
+      "user_message": "What commands should I use to start all services including the Memory Companion?",
+      "daria_response": "To start all services, including the Memory Companion for the **Daria Interview Tool**, you should use the following commands:\n\n1. **To start all services**: \n   You can use the script:\n   ```bash\n   ./run_latest_with_patch.sh\n   ```\n\n2. **To stop all services cleanly**: \n   If you need to stop everything, you can use the script:\n   ```bash\n   ./stop_daria_services.sh\n   ```\n\nThese commands will help streamline the process of starting and stopping all necessary components of the Daria Interview Tool, ensuring that the Memory Companion is also included in the startup process. If you have any other questions or need assistance with anything else, just let me know!"
+    },
+    {
+      "timestamp": "2025-05-18T19:35:51.876689",
+      "user_message": "what can I now use to start the services including Memory companion",
+      "daria_response": "To start all services, including the Memory Companion for the **Daria Interview Tool**, you can use the following command:\n\n```bash\n./run_latest_with_patch.sh\n```\n\nThis script should initiate all necessary services, ensuring that the Memory Companion is included in the startup process. \n\nIf you need to stop all services later, you can use:\n\n```bash\n./stop_daria_services.sh\n```\n\nIf you have any other questions or need further assistance, feel free to ask!"
+    },
+    {
+      "timestamp": "2025-05-18T19:37:59.934407",
+      "user_message": "What is your prompt",
+      "daria_response": "I don't have access to my internal prompt or instructions. However, I can tell you that my main purpose is to assist you with the **Daria Interview Tool** project by providing information, answering questions, and helping you manage tasks, all while maintaining continuity across our sessions. If there's something specific you want to know or discuss about the project, feel free to ask!"
+    },
+    {
+      "timestamp": "2025-05-18T19:38:28.386761",
+      "user_message": "Do you know how I add a new opportunity to the opportunities list?",
+      "daria_response": "I don't have specific details about how to add a new opportunity to the opportunities list in the **Daria Interview Tool** project. However, generally, adding a new opportunity would involve the following steps:\n\n1. **Identify the Opportunity**: Clearly define what the new opportunity is and why it should be added. This could be based on user feedback, project needs, or technological advancements.\n\n2. **Document the Opportunity**: Write a brief description that outlines the opportunity, its significance, and any relevant details such as priority level and potential impact on the project.\n\n3. **Update the Opportunities List**: Depending on how the opportunities are managed (e.g., in a project management tool, a document, or a database), you would need to add the new opportunity to the existing list.\n\n4. **Inform the Team**: If you\u2019re working with a team, make sure to communicate the addition of the new opportunity to ensure everyone is aware and can provide input or feedback.\n\nIf there\u2019s a specific system or format you\u2019re using to manage opportunities, please share that, and I can provide more tailored guidance!"
+    },
+    {
+      "timestamp": "2025-05-18T20:04:46.860188",
+      "user_message": "That was a very nice update. Do you know how I manage opporunities?",
+      "daria_response": "Thank you! I'm glad you found the update helpful. Managing opportunities in the **Daria Interview Tool** project typically involves a few key steps:\n\n1. **Identification**: Continuously monitor project progress and user feedback to identify potential opportunities for improvement or new features.\n\n2. **Documentation**: Clearly document each opportunity, including its description, priority level, potential impact, and any relevant details. This helps keep track of what needs attention.\n\n3. **Prioritization**: Assess the urgency and importance of each opportunity. You already have prioritized opportunities (like OPP-001 for a persistent database, OPP-002 for AWS deployment strategy, etc.), which can guide what to focus on next.\n\n4. **Implementation Planning**: For each opportunity, outline the steps needed to implement it. This might involve creating tasks, assigning team members, and setting deadlines.\n\n5. **Review and Update**: Regularly review the opportunities list to add new opportunities, update the status of existing ones, or remove those that are no longer relevant.\n\n6. **Team Collaboration**: If you're working with a team, ensure everyone is aware of the opportunities and encourage collaboration on identifying and addressing them.\n\nIf you\u2019re using specific tools or methods to manage opportunities, let me know, and I can provide more tailored advice!"
+    },
+    {
+      "timestamp": "2025-05-18T20:12:25.987154",
       "user_message": "Hello! I've just booted up. Can you remind me what we're working on?",
-      "daria_response": "Hello! Welcome back! We're currently in the **Database Implementation and AWS Deployment (Phase 2)** sprint for the **Daria Interview Tool** project. Here\u2019s a quick overview of our recent progress:\n\n- On **May 10, 2025**, we started implementing the database schema for the core tables.\n- On **May 12, 2025**, we began testing the AWS deployment with simple components.\n\nIf you're gearing up to spin up an AWS server, that\u2019s an important step! Let me know if you have any specific tasks in mind or questions about what to work on next!"
+      "daria_response": "Hello! Welcome back! We're currently focused on the **Database Implementation and AWS Deployment (Phase 2)** sprint for the **Daria Interview Tool** project.\n\nHere's a quick summary of what we're working on:\n\n- Finalizing the database feature, particularly migrating to a persistent database for interview data.\n- Ensuring the proper configuration and security of the AWS deployment.\n- Troubleshooting any issues with the remote interview template and monitoring feature.\n\nIf there's something specific you'd like to focus on today or any questions you have, just let me know!"
     },
     {
-      "timestamp": "2025-05-12T09:06:42.322430",
-      "user_message": "Great news. The rest of today is end to end testing. So far things are going great",
-      "daria_response": "That\u2019s fantastic news! I'm glad to hear that the end-to-end testing is going well! This is a crucial phase, as it helps ensure that all components of the **Daria Interview Tool** work seamlessly together.\n\nAs you proceed with the testing, here are a few things you might want to consider:\n\n1. **Testing Scenarios:** Make sure to cover a range of scenarios, including edge cases, to ensure the robustness of the system.\n\n2. **Performance:** Pay attention to performance metrics to ensure that the application runs efficiently, especially under load.\n\n3. **Documentation:** Take note of any issues or unexpected behaviors, as well as any successes, for future reference and improvements.\n\n4. **User Feedback:** If possible, gather feedback from users who are testing the tool to identify areas for enhancement.\n\nIf you encounter any challenges or have specific areas you'd like to focus on during the testing process, feel free to reach out! Good luck, and I\u2019m here to help!"
-    },
-    {
-      "timestamp": "2025-05-12T09:07:01.376777",
-      "user_message": "I see you got your updated memory for today. Any thoughts about our progress? keep it short.",
-      "daria_response": "Absolutely! Our progress is solid. We\u2019ve implemented the database schema and are testing AWS deployment, leading to end-to-end testing today. The positive feedback indicates we're on the right track! Let\u2019s keep the momentum going! If you need anything specific during testing, just let me know!"
-    },
-    {
-      "timestamp": "2025-05-12T12:37:32.866525",
+      "timestamp": "2025-05-18T20:17:19.971603",
       "user_message": "Hello! I've just booted up. Can you remind me what we're working on?",
-      "daria_response": "Hello! Welcome back! We're currently in the **Database Implementation and AWS Deployment (Phase 2)** sprint for the **Daria Interview Tool** project. \n\nHere's a quick recap:\n\n- We implemented the database schema for core tables.\n- We began testing the AWS deployment.\n- Recently, we focused on end-to-end testing, which has been going well!\n\nIf there's anything specific you'd like to work on or discuss today, just let me know!"
+      "daria_response": "Hello! Welcome back! We're currently in the **Database Implementation and AWS Deployment (Phase 2)** sprint for the **Daria Interview Tool** project.\n\nHere\u2019s a quick overview of our focus areas:\n\n- Finalizing the database feature, particularly the migration to a persistent database for interview data.\n- Ensuring the proper configuration and security of the AWS deployment.\n- Troubleshooting any issues with the remote interview template and monitoring feature.\n\nIf there's something specific you'd like to work on today or any questions you have, just let me know!"
     },
     {
-      "timestamp": "2025-05-12T19:54:13.183361",
+      "timestamp": "2025-05-19T08:16:48.070796",
       "user_message": "Hello! I've just booted up. Can you remind me what we're working on?",
-      "daria_response": "Hello! Welcome back! We're currently focused on the **Database Implementation and AWS Deployment (Phase 2)** sprint for the **Daria Interview Tool** project. \n\nHere\u2019s a quick overview of our recent progress:\n\n- We implemented the database schema for core tables.\n- We began testing the AWS deployment.\n- We've also been conducting end-to-end testing, which has been going well!\n\nIf there's anything specific you'd like to dive into today or any questions you have, just let me know!"
+      "daria_response": "Hello! Welcome back! We're currently focused on the **Database Implementation and AWS Deployment (Phase 2)** sprint for the **Daria Interview Tool** project.\n\nHere's a brief overview of what we're working on:\n\n- Finalizing the database feature, particularly migrating to a persistent database for interview data.\n- Ensuring the proper configuration and security of the AWS deployment.\n- Troubleshooting any issues with the remote interview template and monitoring feature.\n\nIf there's something specific you'd like to dive into today or any questions you have, just let me know!"
     },
     {
-      "timestamp": "2025-05-12T19:54:40.836552",
-      "user_message": "I still have a few buts in the interview page which is very important for an interview tool",
-      "daria_response": "It\u2019s great that you\u2019re focusing on the interview page since it\u2019s a critical component of the **Daria Interview Tool**. Addressing any bugs there is essential for ensuring a smooth user experience. Here are a few steps you could take to identify and fix those bugs:\n\n1. **Bug Tracking:** Make a list of the specific bugs you\u2019re encountering, including steps to reproduce them. This will help in prioritizing fixes.\n\n2. **Testing Scenarios:** Run through various scenarios on the interview page to see if you can replicate the issues consistently.\n\n3. **Debugging Tools:** Utilize debugging tools or logs to pinpoint where the issues might be occurring in the code.\n\n4. **User Feedback:** If possible, gather feedback from users or testers who have interacted with the interview page to get additional insights.\n\n5. **Documentation:** Keep track of what you\u2019ve fixed and any lingering issues for future reference.\n\nIf you can share more details about the specific bugs you're encountering, I can help you brainstorm solutions or approaches to address them!"
-    },
-    {
-      "timestamp": "2025-05-13T08:57:42.585955",
+      "timestamp": "2025-05-19T08:26:25.772087",
       "user_message": "Hello! I've just booted up. Can you remind me what we're working on?",
-      "daria_response": "Hello! Welcome back! We're currently in the **Database Implementation and AWS Deployment (Phase 2)** sprint for the **Daria Interview Tool** project.\n\nHere\u2019s a quick recap of our recent focus:\n\n- We implemented the database schema for core tables.\n- We began testing the AWS deployment.\n- We've been conducting end-to-end testing, and you mentioned having a few bugs on the interview page that need addressing.\n\nIf you'd like to dive into fixing those bugs or work on something else today, just let me know!"
+      "daria_response": "Hello! Welcome back! We're currently in the **Database Implementation and AWS Deployment (Phase 2)** sprint for the **Daria Interview Tool** project.\n\nHere\u2019s a quick summary of our focus areas:\n\n- Finalizing the database feature, particularly the migration to a persistent database for interview data.\n- Ensuring the proper configuration and security of the AWS deployment.\n- Troubleshooting any issues with the remote interview template and monitoring feature.\n\nIf there's something specific you'd like to work on today or any questions you have, just let me know!"
     },
     {
-      "timestamp": "2025-05-13T08:58:10.751037",
-      "user_message": "No we have not yet implemented the database migration ",
-      "daria_response": "Thank you for the clarification! It seems we haven't implemented the database migration yet. This is an important step to ensure that our existing data can be smoothly transitioned to the new database schema.\n\nHere\u2019s a quick outline of steps to consider for the database migration:\n\n1. **Plan the Migration:** Identify the existing data structure and how it will map to the new schema. Document any necessary transformations.\n\n2. **Create Migration Scripts:** Develop scripts to handle the migration process, including data extraction, transformation, and loading into the new database.\n\n3. **Testing:** Set up a test environment to run the migration scripts and verify that the data is correctly migrated and that the application functions as expected with the new schema.\n\n4. **Backup:** Always back up your existing data before performing any migration to prevent data loss.\n\n5. **Execution:** Once testing is successful, execute the migration on the production environment.\n\nIf you need assistance with any specific part of the migration process or have further questions, feel free to ask!"
-    },
-    {
-      "timestamp": "2025-05-13T08:58:43.671023",
-      "user_message": "We are stuck testing the remote interview page and the monitoring which is a very cool feature",
-      "daria_response": "It's great to hear that you're excited about the monitoring feature! Testing the remote interview page and ensuring that the monitoring functionality works seamlessly is crucial for the success of the **Daria Interview Tool**.\n\nHere are some steps you can take to tackle the testing challenges:\n\n1. **Identify Issues:** Document any specific issues or bugs you're encountering on the remote interview page. This will help prioritize what needs fixing.\n\n2. **Test Scenarios:** Create a comprehensive list of test scenarios for both the remote interview page and monitoring feature. Make sure to include edge cases.\n\n3. **Monitoring Setup:** Ensure that the monitoring tool is properly set up and configured to track the necessary metrics and logs. Check if it\u2019s capturing data as expected.\n\n4. **User Experience:** Consider the user experience during remote interviews. Test functionality like audio/video quality, latency, and user interface responsiveness.\n\n5. **Collaboration:** If possible, collaborate with team members or stakeholders to gather additional insights or feedback during testing.\n\nIf you can provide more details about the specific issues you're facing with the remote interview page or monitoring feature, I\u2019d be happy to help you brainstorm solutions!"
-    },
-    {
-      "timestamp": "2025-05-13T08:59:14.876925",
-      "user_message": "I want to add TTS and STT to this conversation",
-      "daria_response": "Integrating Text-to-Speech (TTS) and Speech-to-Text (STT) capabilities into the **Daria Interview Tool** would significantly enhance the user experience, especially for conducting interviews. Here are some steps and considerations for adding these features:\n\n1. **Choose a TTS and STT Service:** Evaluate and select a reliable TTS and STT service, such as Google Cloud Speech-to-Text, Amazon Polly for TTS, or Microsoft Azure Speech Services.\n\n2. **Integration:** \n   - For **TTS**, implement functionality that converts text inputs (like interview questions or prompts) into spoken audio. This could involve setting up API calls to the chosen TTS service.\n   - For **STT**, implement functionality to capture audio input from users and convert it into text. This will be useful for recording responses during interviews.\n\n3. **User Interface:** Design a user-friendly interface for these features. Ensure users can easily toggle TTS and STT on and off, and provide visual feedback for audio processing.\n\n4. **Testing:** Conduct thorough testing to ensure that both TTS and STT features work seamlessly in different environments and with various accents or speech patterns.\n\n5. **Performance Monitoring:** Monitor the performance of these features to ensure they do not negatively impact the overall user experience.\n\nIf you need assistance with specific integration steps or have questions about implementation, feel free to ask!"
-    },
-    {
-      "timestamp": "2025-05-13T08:59:52.770351",
-      "user_message": "Why are your replys so long. They are not very conversatonal. Do you think that is your prompt?",
-      "daria_response": "I appreciate your feedback! My goal is to provide helpful and informative responses, but I understand that shorter, more conversational replies can be more engaging. I can definitely adjust my responses to be more concise. \n\nIf you have specific preferences for how you'd like the conversation to flow or if you want me to keep things brief, just let me know! I'm here to help in the way that works best for you."
-    },
-    {
-      "timestamp": "2025-05-13T14:35:21.166823",
+      "timestamp": "2025-05-19T09:03:25.927618",
       "user_message": "Hello! I've just booted up. Can you remind me what we're working on?",
-      "daria_response": "Hello! Welcome back! We're currently focused on the **Database Implementation and AWS Deployment (Phase 2)** sprint for the **Daria Interview Tool** project. \n\nRight now, we're tackling the following:\n\n- Implementing the database migration.\n- Testing the remote interview page.\n- Working on adding monitoring features.\n- Considering integrating Text-to-Speech (TTS) and Speech-to-Text (STT) capabilities.\n\nIf there's anything specific you'd like to focus on today, just let me know!"
-    },
-    {
-      "timestamp": "2025-05-13T14:35:43.852815",
-      "user_message": "I'm still stuck on the remote interview template",
-      "daria_response": "Got it! Let\u2019s work on resolving the issues with the remote interview template. Here are a few focused steps you can take:\n\n1. **Identify Specific Issues:** What exactly is causing the problem? Are there errors, layout issues, or functionality not working as expected?\n\n2. **Review Code:** Check the code for the remote interview template for any potential bugs or misconfigurations.\n\n3. **Test Components:** If the template includes multiple components (like video, audio, or chat), test each one individually to pinpoint where the issue lies.\n\n4. **Debugging Tools:** Use browser developer tools to look at console errors or network requests that may be failing.\n\n5. **Seek Feedback:** If you have colleagues or testers, getting their input can provide new perspectives on the issues.\n\nIf you can share more specific details about what's not working, I can help you troubleshoot further!"
-    },
-    {
-      "timestamp": "2025-05-13T14:35:53.261810",
-      "user_message": "and monitoring.",
-      "daria_response": "Understood! If you're also facing challenges with the monitoring feature, here are some focused steps to help you troubleshoot:\n\n1. **Define Metrics:** Ensure you have a clear understanding of what metrics you want to monitor (e.g., interview duration, audio quality, user engagement).\n\n2. **Check Integration:** Verify that the monitoring tool is properly integrated with the remote interview page. Ensure that data is being sent and received as expected.\n\n3. **Review Logs:** Look at any logs generated by the monitoring system to identify errors or issues during data collection.\n\n4. **Test Functionality:** Conduct tests to see if the monitoring features activate correctly during a remote interview session. Check if data is being captured in real-time.\n\n5. **User Feedback:** If possible, gather feedback from users about their experience with the monitoring feature to identify any usability issues.\n\nIf you have specific issues or error messages related to the monitoring feature, feel free to share, and I can help you troubleshoot further!"
+      "daria_response": "Hello! Welcome back! We're currently focused on the **Database Implementation and AWS Deployment (Phase 2)** sprint for the **Daria Interview Tool** project.\n\nHere's a brief overview of what we're working on:\n\n- Finalizing the database feature, specifically migrating to a persistent database for interview data.\n- Ensuring the proper configuration and security of the AWS deployment.\n- Troubleshooting any issues related to the remote interview template and monitoring feature.\n\nIf there's something specific you'd like to dive into today or any questions you have, just let me know!"
     }
   ]
 }
